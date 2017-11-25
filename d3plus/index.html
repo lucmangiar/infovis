@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<script src="//d3plus.org/js/d3.js"></script>
+<script src="//d3plus.org/js/d3plus.js"></script>
+
+<div id="viz"></div>
+  
+<div id="viz2"></div>
+
+<script>
+
+  var url = "https://raw.githubusercontent.com/aaizemberg/vis/gh-pages/graduados/data.tsv";
+
+  var graph = d3plus.viz()
+    .container("#viz")
+    .data(url)
+    .type("stacked")
+    .x("año")
+    .y("cant")
+    .format("es_ES")
+    .id("titulo")
+    .size("cant")
+    .time("año")
+    .shape(
+      {"interpolate" : "step-before"}
+    )
+    .draw()
+  
+  
+  d3plus.viz()
+    .container("#viz2")
+    .data(url)
+    .type("stacked")
+    .x("año")
+    .y("cant")
+    .format("es_ES")
+    .id("titulo")
+    .size("cant")
+    .time("año")
+    .shape(
+      {"interpolate" : "monotone"}
+    )
+    .draw()
+
+</script>
+</body>
+</html>
